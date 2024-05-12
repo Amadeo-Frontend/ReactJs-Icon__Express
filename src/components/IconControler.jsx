@@ -1,22 +1,25 @@
 import { Smile } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ColorPickerController from "./ColorPickerController";
+import { UpdateStorageContext } from "./context/UpdateStorageContext";
 
 const IconControler = () => {
   const [size, setSize] = useState(280);
   const [rotate, setRotate] = useState(0);
   const [color, setColor] = useState("#fff");
-  const storegeValue = JSON.parse(localStorage.getItem("value"));
+  const storageValue = JSON.parse(localStorage.getItem("value"));
+  const { updateStorage, setUpdateStorage } = useContext(UpdateStorageContext);
 
   useEffect(() => {
     const updatedValue = {
-      ...storegeValue,
+      ...storageValue,
       iconSize: size,
       iconRotate: rotate,
       iconColor: color,
       icon: "Smile",
     };
+    setUpdateStorage(updatedValue);
     localStorage.setItem("value", JSON.stringify(updatedValue));
   }, [size, rotate, color]);
 
@@ -28,7 +31,7 @@ const IconControler = () => {
           <Smile />
         </div>
         <div className="py-2">
-          <label className="p-2 flex justify-between items-center">
+          <label className="flex items-center justify-between p-2">
             Tamanho<span>{size} px</span>{" "}
           </label>
           <Slider
@@ -39,7 +42,7 @@ const IconControler = () => {
           />
         </div>
         <div className="py-2">
-          <label className="p-2 flex justify-between items-center">
+          <label className="flex items-center justify-between p-2">
             Rotação<span>{rotate} °</span>{" "}
           </label>
           <Slider
