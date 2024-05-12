@@ -5,10 +5,14 @@ import ColorPickerController from "./ColorPickerController";
 import { UpdateStorageContext } from "./context/UpdateStorageContext";
 
 const IconControler = () => {
-  const [size, setSize] = useState(280);
-  const [rotate, setRotate] = useState(0);
-  const [color, setColor] = useState("#fff");
   const storageValue = JSON.parse(localStorage.getItem("value"));
+  const [size, setSize] = useState(storageValue ? storageValue?.iconSize : 280);
+  const [rotate, setRotate] = useState(
+    storageValue ? storageValue?.iconRotate : 0
+  );
+  const [color, setColor] = useState(
+    storageValue ? storageValue?.iconColor : "#fff"
+  );
   const { updateStorage, setUpdateStorage } = useContext(UpdateStorageContext);
 
   useEffect(() => {
@@ -35,7 +39,7 @@ const IconControler = () => {
             Tamanho<span>{size} px</span>{" "}
           </label>
           <Slider
-            defaultValue={[280]}
+            defaultValue={[size]}
             max={512}
             step={1}
             onValueChange={(event) => setSize(event[0])}
@@ -46,7 +50,7 @@ const IconControler = () => {
             Rotação<span>{rotate} °</span>{" "}
           </label>
           <Slider
-            defaultValue={[0]}
+            defaultValue={[rotate]}
             max={360}
             step={1}
             onValueChange={(event) => setRotate(event[0])}
