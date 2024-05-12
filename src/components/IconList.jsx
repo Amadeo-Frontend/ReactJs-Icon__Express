@@ -22,6 +22,12 @@ const IconList = ({ selectedIcon }) => {
     }
     return <LucidIcon color={color} size={size} />;
   };
+
+  // Função para fechar o diálogo
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
+
   return (
     <div>
       <div>
@@ -33,7 +39,7 @@ const IconList = ({ selectedIcon }) => {
           <Icon name={icon} color={"#000"} size={20} />
         </div>
       </div>
-      <Dialog open={openDialog}>
+      <Dialog open={openDialog} onOpenChange={handleCloseDialog}>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Escolha seu Ícone</DialogTitle>
