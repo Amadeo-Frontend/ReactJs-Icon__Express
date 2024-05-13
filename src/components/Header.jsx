@@ -14,9 +14,9 @@ const Header = ({ DownloadIcon }) => {
       <Reveal>
         <div className="flex items-center gap-2 logo">
           <img
-            src="/vite.svg"
+            src="/logo.png"
             alt=""
-            className="cursor-pointer"
+            className="cursor-pointer w-9 h-9"
             onClick={resetPageAndStorage}
           />
           <span className="text-2xl font-semibold tracking-tight text-slate-500">
