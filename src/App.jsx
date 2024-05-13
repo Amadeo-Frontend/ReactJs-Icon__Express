@@ -7,7 +7,7 @@ import LogoPreview from "./components/LogoPreview";
 import { UpdateStorageContext } from "./components/context/UpdateStorageContext";
 
 const App = () => {
-  const [selectedIndex, setSelectedIndex] = useState();
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [updateStorage, setUpdateStorage] = useState({});
   const [downloadIcon, setDownloadIcon] = useState();
   return (
