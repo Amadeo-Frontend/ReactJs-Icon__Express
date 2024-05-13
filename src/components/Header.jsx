@@ -3,17 +3,33 @@ import { Button } from "./ui/button";
 import Reveal from "./Reveal";
 
 const Header = ({ DownloadIcon }) => {
+  const resetPageAndStorage = () => {
+    // Limpa o armazenamento local
+    localStorage.clear();
+    // Recarrega a página
+    window.location.reload();
+  };
   return (
     <div className="flex items-center justify-between p-4 border shadow-sm">
       <Reveal>
-        <img src="/vite.svg" alt="" />
+        <div className="flex items-center gap-2 logo">
+          <img
+            src="/vite.svg"
+            alt=""
+            className="cursor-pointer"
+            onClick={resetPageAndStorage}
+          />
+          <span className="text-2xl font-semibold tracking-tight text-slate-500">
+            ICON EXPRESS
+          </span>
+        </div>
       </Reveal>
       <Reveal>
         <Button
           className="flex items-center gap-2"
           onClick={() => DownloadIcon(Date.now())}
         >
-          <Download className="w-4 h-4" />
+          <Download className="w-4 h-4 hover:animate-bounce" />
           Download
         </Button>
       </Reveal>

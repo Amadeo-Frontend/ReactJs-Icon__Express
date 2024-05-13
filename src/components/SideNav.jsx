@@ -21,6 +21,7 @@ const SideNav = ({ selectedIndex }) => {
   return (
     <div className="h-screen border shadow-sm">
       <Reveal>
+        {" "}
         <div>
           {menuList.map((menu, index) => (
             <h2
@@ -33,7 +34,7 @@ const SideNav = ({ selectedIndex }) => {
               }`}
               key={index}
             >
-              <menu.icon className="w-5 h-5 hover:animate-bounce" />
+              <menu.icon className="w-6 h-6 hover:animate-bounce" />
               {menu.name}
             </h2>
           ))}

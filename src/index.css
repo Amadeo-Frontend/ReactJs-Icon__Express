@@ -80,12 +80,6 @@ body {
   font-family: "Nunito Sans", sans-serif;
 }
 
-/* Adicione esta regra ao seu arquivo CSS */
-.icon-container:hover.icon-animation {
-  display: inline-block;
-}
-
-.icon-animation {
-  display: none;
-  /* Outras propriedades de estilo para o ícone, como tamanho e cor */
+.logo {
+  font-family: "Exo 2", sans-serif;
 }
