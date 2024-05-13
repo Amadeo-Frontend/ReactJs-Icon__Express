@@ -17,14 +17,13 @@ const App = () => {
         <div className="fixed w-64">
           <SideNav selectedIndex={(value) => setSelectedIndex(value)} />
         </div>
-        <div className="fixed grid grid-cols-1 ml-64 md:grid-cols-6">
+        <div className="fixed grid grid-cols-1 md:ml-64 md:grid-cols-6">
           <div className="h-screen p-5 overflow-auto border shadow-sm md:col-span-2">
             {selectedIndex == 0 ? <IconControler /> : <BgControler />}
           </div>
-          <div className="md:col-span-3">
+          <div className="md:col-span-4">
             <LogoPreview downloadIcon={downloadIcon} />
           </div>
-          <div className="md:col-span-1">ads</div>
         </div>
       </div>
     </UpdateStorageContext.Provider>

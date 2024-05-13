@@ -1,45 +1,44 @@
-import { Image, PencilRuler, ShieldCheck } from "lucide-react";
 import { useState } from "react";
+import { PiSelectionBackground } from "react-icons/pi";
+import { FaRegEdit } from "react-icons/fa";
+import Reveal from "./Reveal";
 
 const SideNav = ({ selectedIndex }) => {
   const menuList = [
     {
       id: 1,
       name: "Icon",
-      icon: PencilRuler,
+      icon: FaRegEdit,
     },
     {
       id: 2,
       name: "Background",
-      icon: Image,
-    },
-    {
-      id: 3,
-      name: "Upgrade",
-      icon: ShieldCheck,
+      icon: PiSelectionBackground,
     },
   ];
 
   const [activateIndex, setActivateIndex] = useState(0);
   return (
-    <div className="border shadow-sm h-screen">
-      <div>
-        {menuList.map((menu, index) => (
-          <h2
-            onClick={() => {
-              setActivateIndex(index);
-              selectedIndex(index);
-            }}
-            className={`p-3 text-lg px-7 text-gray-500 my-2 cursor-pointer hover:bg-primary hover:text-white flex items-center gap-2 ${
-              activateIndex == index && "bg-primary text-white"
-            }`}
-            key={index}
-          >
-            <menu.icon />
-            {menu.name}
-          </h2>
-        ))}
-      </div>
+    <div className="h-screen border shadow-sm">
+      <Reveal>
+        <div>
+          {menuList.map((menu, index) => (
+            <h2
+              onClick={() => {
+                setActivateIndex(index);
+                selectedIndex(index);
+              }}
+              className={`p-3 text-lg px-7 text-gray-500 my-2 cursor-pointer hover:bg-primary hover:text-white flex items-center gap-2 ${
+                activateIndex == index && "bg-primary text-white"
+              }`}
+              key={index}
+            >
+              <menu.icon className="w-5 h-5 hover:animate-bounce" />
+              {menu.name}
+            </h2>
+          ))}
+        </div>
+      </Reveal>
     </div>
   );
 };

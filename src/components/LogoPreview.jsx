@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { UpdateStorageContext } from "./context/UpdateStorageContext";
 import { icons } from "lucide-react";
 import html2canvas from "html2canvas";
+import Reveal from "./Reveal";
 const LogoPreview = ({ downloadIcon }) => {
   const [storageValue, setStorageValue] = useState();
   const { updateStorage, setUpdateStorage } = useContext(UpdateStorageContext);
@@ -50,28 +51,31 @@ const LogoPreview = ({ downloadIcon }) => {
 
   return (
     <div className="flex items-center justify-center w-full h-screen">
-      <div
-        className="h-[400px] w-[400px] bg-gray-200 outline-dotted outline-gray-300"
-        style={{
-          padding: storageValue?.bgPadding,
-        }}
-      >
+      <Reveal>
+        {" "}
         <div
-          id="downloadIconDiv"
-          className="flex items-center justify-center w-full h-full"
+          className="h-[500px] w-[500px] mb-20 bg-gray-200 outline-dotted outline-gray-300"
           style={{
-            borderRadius: storageValue?.bgRounded,
-            background: storageValue?.bgColor,
+            padding: storageValue?.bgPadding,
           }}
         >
-          <Icon
-            name={storageValue?.icon}
-            color={storageValue?.iconColor}
-            size={storageValue?.iconSize}
-            rotate={storageValue?.iconRotate}
-          />
+          <div
+            id="downloadIconDiv"
+            className="flex items-center justify-center w-full h-full"
+            style={{
+              borderRadius: storageValue?.bgRounded,
+              background: storageValue?.bgColor,
+            }}
+          >
+            <Icon
+              name={storageValue?.icon}
+              color={storageValue?.iconColor}
+              size={storageValue?.iconSize}
+              rotate={storageValue?.iconRotate}
+            />
+          </div>
         </div>
-      </div>
+      </Reveal>
     </div>
   );
 };
