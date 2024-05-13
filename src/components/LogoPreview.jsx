@@ -1,13 +1,36 @@
 import { useEffect, useState, useContext } from "react";
 import { UpdateStorageContext } from "./context/UpdateStorageContext";
 import { icons } from "lucide-react";
-const LogoPreview = () => {
+import html2canvas from "html2canvas";
+const LogoPreview = ({ downloadIcon }) => {
   const [storageValue, setStorageValue] = useState();
   const { updateStorage, setUpdateStorage } = useContext(UpdateStorageContext);
   useEffect(() => {
     const storageData = JSON.parse(localStorage.getItem("value"));
     setStorageValue(storageData);
   }, [updateStorage]);
+  useEffect(() => {
+    if (downloadIcon) {
+      downloadPngIcon();
+    }
+  }, [downloadIcon]);
+
+  /**
+   * Used to download the icon in png format
+   */
+
+  const downloadPngIcon = () => {
+    const downloadIconDiv = document.getElementById("downloadIconDiv");
+    html2canvas(downloadIconDiv, {
+      backgroundColor: null,
+    }).then((canvas) => {
+      const pngImage = canvas.toDataURL("image/png");
+      const downloadLink = document.createElement("a");
+      downloadLink.href = pngImage;
+      downloadLink.download = "Icon_Express.png";
+      downloadLink.click();
+    });
+  };
 
   const Icon = ({ name, color, size, rotate }) => {
     const LucidIcon = icons[name];
@@ -34,6 +57,7 @@ const LogoPreview = () => {
         }}
       >
         <div
+          id="downloadIconDiv"
           className="flex items-center justify-center w-full h-full"
           style={{
             borderRadius: storageValue?.bgRounded,
