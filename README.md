@@ -1,4 +1,4 @@
-# Projeto de Controle de Ícones e Fundo 🎨🖥️
+# <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Beaming%20Face%20with%20Smiling%20Eyes.png" alt="Beaming Face with Smiling Eyes" width="40" height="40" />  Icon Express
 
 Este projeto é uma aplicação web desenvolvida em React que permite aos usuários personalizar ícones e fundos de acordo com suas preferências. Ele oferece uma interface intuitiva para ajustar o tamanho, rotação, cor e outras propriedades de ícones, além de permitir a personalização do fundo com arredondamento, preenchimento e cor. O projeto também inclui funcionalidades para salvar as configurações escolhidas no armazenamento local do navegador e exibir uma prévia do ícone selecionado antes de ser baixado.
 
