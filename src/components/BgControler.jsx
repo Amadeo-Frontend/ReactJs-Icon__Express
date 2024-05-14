@@ -52,7 +52,7 @@ const BgControler = () => {
         />
       </div>
       <div className="py-2">
-        <label className="p-2">Cor do Ícone</label>
+        <label className="p-2">Cor do Fundo</label>
         <ColorPickerController
           hideControler={false}
           selectedColor={(color) => setColor(color)}
